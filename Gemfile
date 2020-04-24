@@ -38,7 +38,7 @@ group :test do
   # I think factory girl rails isn't supported to rails 5.2 or newer than this version
   gem 'factory_bot_rails'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'faker'
+  gem 'faker' # generate test data such as superhero
   gem 'database_cleaner'
 end
 

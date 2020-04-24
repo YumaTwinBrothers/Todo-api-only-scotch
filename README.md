@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* APIモードで新規プロジェクト作成（デフォルトのテストフォルダは作成しない）
+$ rails _5.2.4.1_ new todos-api --api -T
 
-Things you may want to cover:
+* RSpec関連のgemをインストール
+  group :development, :test do
+    gem 'rspec-rails', '~> 3.5'
+  end
+  group :test do
+    # factory_girl_railsではなくfactory_bot_railsをインストール
+    gem 'factory_bot_rails', '~> 4.0'
+    gem 'shoulda-matchers', '~> 3.1'
+    gem 'faker'
+    gem 'database_cleaner'
+  end  
 
-* Ruby version
+* RSpecインストール後、factoriesディレクトリ作成
 
-* System dependencies
+* spec/rails_helper.rbを編集（追加するコードの場所に注意）
 
-* Configuration
+* モデルを作成し、spec内のmodelテストを書いてその通りにmodelを実装
 
-* Database creation
+* コントロールを作成し、spec/requestsディレクトリ作成後にテストファイル作成し、factoriesのテストデータ定義後にリクエストのテストを書いていく
+その通りにコントロールを実装
+←Request specs
 
-* Database initialization
+* コントローラーの実装は少し特殊で、
+コントローラーで使用するjson_responseメソッドをconcerns/response.rbのmodule Responseに定義しレスポンス内容を指定
+concerns/exception_handler.rbのmodule ExceptionHandlerに例外処理を記載
+application_controller.rbにResponseとExceptionHandlerをincludeする
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* クライアントツールのhttpieでデータ処理の確認

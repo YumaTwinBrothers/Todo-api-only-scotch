@@ -1,21 +1,21 @@
 # README
 
-* APIモードで新規プロジェクト作成（デフォルトのテストフォルダは作成しない）
-$ rails _5.2.4.1_ new todos-api --api -T
+* APIモードで新規プロジェクト作成（デフォルトのテストフォルダは作成しない..-T付与）
+    $ rails _5.2.4.1_ new todos-api --api -T
 
 * RSpec関連のgemをインストール
-  group :development, :test do
-    gem 'rspec-rails', '~> 3.5'
-  end
-  group :test do
-    # factory_girl_railsではなくfactory_bot_railsをインストール
-    gem 'factory_bot_rails', '~> 4.0'
-    gem 'shoulda-matchers', '~> 3.1'
-    gem 'faker'
-    gem 'database_cleaner'
-  end  
+    group :development, :test do
+      gem 'rspec-rails', '~> 3.5'
+    end
+    group :test do
+      gem 'factory_bot_rails', '~> 4.0'
+      ←factory_girl_railsではなくfactory_bot_railsをインストール
+      gem 'shoulda-matchers', '~> 3.1'
+      gem 'faker'
+      gem 'database_cleaner'
+    end  
 
-* RSpecインストール後、factoriesディレクトリ作成
+* RSpecインストール後、factories(テストデータ格納)ディレクトリ作成
 
 * spec/rails_helper.rbを編集（追加するコードの場所に注意）
 
